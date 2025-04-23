@@ -10,3 +10,18 @@
     <link><a href="{{ url_for('signup')}}">Sign Up</a></link>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome to the Portal</h1>
+    <nav>
+        <a href="{{ url_for('login_page') }}">Log In</a> |
+        <a href="{{ url_for('signup_page') }}">Create Account</a>
+    </nav>
+</body>
+</html>
