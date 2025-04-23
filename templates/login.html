@@ -14,3 +14,22 @@
         <link><a href="{{ url_for('signup')}}">Sign Up</a></link>
     </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign In</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="{{ url_for('login_page') }}" method="post">
+        <input type="text" name="username" placeholder="Enter Username" required><br>
+        <input type="password" name="password" placeholder="Enter Password" required><br>
+        <button type="submit">Log In</button>
+    </form>
+    {% if error %}
+    <p style="color: red;">Invalid username or password. Try again.</p>
+    {% endif %}
+    <p>Need an account? <a href="{{ url_for('signup_page') }}">Register here</a></p>
+</body>
+</html>
