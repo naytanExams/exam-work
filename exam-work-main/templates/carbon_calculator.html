@@ -55,3 +55,38 @@
 {% elif error %}
     <p style="color: red">{{ error }}</p>
 {% endif %}
+
+
+
+
+SCORE_TO_RATING = {v: k for k, v in
+                RATING_TO_SCORE.items()}
+
+RATING_COST_RANGES = {
+    "A": (300,400),
+    "B": (500, 600),
+    "C": (600, 700),
+    "D": (750, 850),
+    "E": (900,950),
+    "F": (1000,1050),
+    "G": (1100,1200)
+}
+
+@webapp.route('/carbon_calculator', methods=['GET', 'POST'])
+def carbon_calculator():
+    if request.method == 'POST':
+        ratings = [request.form.get(f'appliance{1}') for i in range(1, 13)]
+        valid_ratings = [r for r in ratings if r in RATING_TO_SCORE]
+
+        if not valid_ratings:
+            return render_template('carbon_calculator.html', error="Please enter valid ratings.")
+        
+        valid_ratings = [RATING_TO_SCORE[r] for r in valid_ratings]
+        avg_score = round(sum(valid_ratings) / len(valid_ratings))
+        average_rating = SCORE_TO_RATING.get(avg_score, "Unknown")
+        cost_range = RATING_COST_RANGES.get(average_rating, (0, 0))
+        estimated_cost = random.randint(cost_range[0], cost_range[1])
+        return render_template('carbon_calculator.html',
+                           average_rating=average_rating,
+                           estimated_cost=estimated_cost)
+    return render_template('carbon_calculator.html')
