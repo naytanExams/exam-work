@@ -25,3 +25,31 @@
     </form>
 </body>
 </html>
+
+
+
+
+
+<form method="POST">
+    {% for i in range(1, 13) %}
+        <label for="appliance{{i}}">Appliance {{i}} Rating:</label>
+        <select name="appliance{{i}}" required>
+            <option value="">--Select--</option>
+            <option value="A+">A+</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+        </select><br>
+    {% endfor %}
+    <br>
+    <button type="submit">Calculate</button>
+</form>
+
+{% if average_rating and estimated_cost %}
+    <h3>Average Rating: {{ average_rating }}</h3>
+    <h3>Estimated Yearly Cost: £{{ estimated_cost }}</h3>
+{% endif %}
