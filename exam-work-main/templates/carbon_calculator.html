@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carbon Calculator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='carbon_calculator.css') }}">
+
+</head>
+<body>
+    <form method="POST" class="carbon-form">
+        <div class="appliance-box">
+            {% for i in range(1, 13) %}
+            <div class="appliance-row">
+                <label>Appliance {{ i }}</label>
+                <input type="text" name="appliance{{ i }}" placeholder="e.g., A++, B, C">
+            </div>
+            {% endfor %}
+            <button type="submit">Calculate</button>
+        </div>
+
+        <div class="results-box">
+            <h3>Results</h3>
+            <p><strong>Average Energy Rating:</strong> {{ average_rating if average_rating else "N/A" }}</p>
+            <p><strong>Estimated Yearly Cost:</strong> {{ estimated_cost if estimated_cost else "N/A" }}</p>
+        </div>
+    </form>
+</body>
+</html>

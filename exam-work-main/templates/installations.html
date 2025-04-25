@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Installations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='installations.css') }}">
+</head>
+<body>
+    <h2>Book an Installation</h2>
+
+    <form method="POST">
+        <label>Preferred Date:</label><br>
+        <input type="date" name="install_date" required><br><br>
+
+        <label>Product:</label><br>
+        <input type="text" name="product" required><br><br>
+
+        <label>Phone Number:</label><br>
+        <input type="text" name="phone" required><br><br>
+
+        <label>Address:</label><br>
+        <textarea name="address" required></textarea><br><br>
+
+        <button type="submit">Save Installation</button>
+    </form>
+
+    <hr>
+
+    <h3>Your Bookings</h3>
+    {% if bookings %}
+        <ul>
+            {% for booking in bookings %}
+                <li>
+                    <strong>Date:</strong> {{ booking[0] }} |
+                    <strong>Product:</strong> {{ booking[1] }} |
+                    <strong>Phone:</strong> {{ booking[2] }} |
+                    <strong>Address:</strong> {{ booking[3] }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No bookings yet.</p>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('homepage') }}">Back to homepage</a>
+</body>
+</html>
+
+
+

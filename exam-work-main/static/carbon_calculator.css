@@ -1,0 +1,47 @@
+/* carbon_calculator.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.carbon-form {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+.appliance-box {
+    flex: 7;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.appliance-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.appliance-row label {
+    width: 100px;
+}
+
+.appliance-row input {
+    flex: 1;
+    padding: 6px;
+}
+
+.results-box {
+    flex: 3;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-left: 2px solid #ccc;
+    border-radius: 8px;
+}

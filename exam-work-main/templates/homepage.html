@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">ROLSA TECHNOLOGIES</div>
+    <div class="content"></div>
+
+    <div class="bottom-tab">
+        <a href="{{ url_for('homepage') }}" class="tab-button">HOMEPAGE</a>
+        <a href="{{ url_for('carbon_calculator') }}" class="tab-button">Carbon calculator</a>
+        <a href="{{ url_for('installations') }}" class="tab-button">INSTALLATIONS</a>
+        <a href="{{ url_for('consultations') }}" class="tab-button">CONSULTATIONS</a>
+        <a href="#" class="tab-button">FEED</a>
+        <a href="#" class="tab-button">SETTINGS</a>
+    </div>
+</body>
+</html>
+
+
+
+
+
