@@ -33,8 +33,8 @@
 <form method="POST">
     {% for i in range(1, 13) %}
         <label for="appliance{{i}}">Appliance {{i}} Rating:</label>
-        <select name="appliance{{i}}" required>
-            <option value="">--Select--</option>
+        <select name="appliance{{i}}">
+            <option value="NOTHING">--Nothing--</option>
             <option value="A+">A+</option>
             <option value="A">A</option>
             <option value="B">B</option>
@@ -52,4 +52,6 @@
 {% if average_rating and estimated_cost %}
     <h3>Average Rating: {{ average_rating }}</h3>
     <h3>Estimated Yearly Cost: £{{ estimated_cost }}</h3>
+{% elif error %}
+    <p style="color: red">{{ error }}</p>
 {% endif %}
